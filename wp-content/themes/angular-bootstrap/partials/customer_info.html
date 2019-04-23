@@ -1,0 +1,73 @@
+<div>
+    <h1>{{}}</h1>
+    <form name="customerInfoForm" ng-submit="submitCustomerInfo(customerInfoForm.$valid)" novalidate>
+        
+        <h1>{{customer.last_name}} {{customer.first_name}} {{customer.second_name}}</h1>
+        
+        <table width="100%">
+            <tr>
+                <td>
+                    <label>Прізвище</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Прізвище" name="customerLastNsme" class="form-control" ng-model="customer.last_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Ім'я</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Ім'я" name="customerFirstName" class="form-control" ng-model="customer.first_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>По батькові</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="По батькові"  name="customerSecondName" class="form-control" ng-model="customer.second_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Електронна пошта</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Електронна пошта"  name="customerEmail" class="form-control" ng-model="customer.email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Стать</label>
+                </td>
+                <td>
+                    <!--input type="text" placeholder="Стать" name="customerSex" class="form-control" ng-model="customer.sex"/-->
+                    
+                    <select ng-model="customer.sex" class="form-control">
+                        <option value="M" selected>M</option>
+                        <option value="F">F</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Компанія</label>
+                </td>
+                <td>
+                    <!--select ng-model="customer.company" class="form-control" ng-options="com.i_company as com.title for com in companyList"-->
+                    <select ng-model="customer.i_company" class="form-control">
+                        <option value="0">Немає</option>
+                        <!--option ng-repeat="x in companyList" ng-value="x.i_company" ng-selected="x.i_company==customer.i_company">{{x.title}}</option-->
+                        <option ng-repeat="x in companyList" ng-value="x.i_company">{{x.title}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+        </p>  
+    </form>
+</div>
+

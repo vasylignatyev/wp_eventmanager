@@ -1,0 +1,30 @@
+<div>
+    <h1>Проекти</h1>
+    <table class="table-hover" width="100%" id="project-list-table">
+        <thead>
+            <tr>
+                <th width="50%">Назва</th>
+                <th width="20%">Дата початку</th>
+                <th width="20%">Дата закінчення</th>
+                <th width="35px">Дії</th>
+            </tr>
+            <tr ng-repeat="project in projectList" data-i-project="{{ project.i_project }}">
+                <td>
+                    <a href="" ng-click="showProjectInfo(project.i_project)">{{ project.title }}</a>
+                </td>
+                <td>
+                    {{ project.start_date }}
+                </td>
+                <td>
+                    {{ project.end_date }}
+                </td>
+                <td class="project-action">
+                    <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(project.i_project)" ></span>
+                    <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(project.i_project)"></span-->
+                    <span title="Delete" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delProject(project.i_project)"></span>
+                </td>
+            </tr>
+        </thead>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="addProject()">Додати</button>
+</div>

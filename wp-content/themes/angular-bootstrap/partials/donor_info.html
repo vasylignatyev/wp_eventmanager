@@ -1,0 +1,29 @@
+<div>
+    <form name="addDonorForm" ng-submit="addDonorSubmit(addDonorForm.$valid)" novalidate>
+        
+        <label>Назва:</label>
+        <input type="text" placeholder="Назва" name="donorTitle" class="form-control" ng-model="donor.title" ng-class="{error : addDonorForm.donorTitle.$error.required}" ng-required="true">
+        <span class="text-error" data-ng-show="addDonorForm.$submitted && addDonorForm.donorTitle.$error.required">обов'язкове поле</span>
+        
+        <label>Слоган:</label>
+        <input type="text" placeholder="Слоган" name="donorTagline" class="form-control" ng-model="donor.tagline" ng-class="{error : addDonorForm.donorTagline.$error.required}" ng-required="false">
+        <span class="text-error" data-ng-show="addDonorForm.$submitted && addDonorForm.donorTagline.$error.required">обов'язкове поле</span>
+
+        <label>Країна:</label>
+        <input type="text" placeholder="Країна" name="donorCountry" class="form-control" ng-model="donor.country" ng-class="{error : addDonorForm.donorCountry.$error.required}" ng-required="false">
+        <span class="text-error" data-ng-show="addDonorForm.$submitted && addDonorForm.donorCountry.$error.required">обов'язкове поле</span>
+
+        <label>Короткий _опис:</label>
+        <textarea angularte name="donorShortDesc" ng-model="donor.short_desc" ng-required="true"></textarea>
+        <span class="text-error" data-ng-show="addDonorForm.$submitted && addDonorForm.donorShortDesc.$error.required">обов'язкове поле</span>
+
+        <label>Повний опис:</label>
+        <textarea angularte name="donorFullDesc"  ng-model="donor.full_desc"  ng-required="true"></textarea>
+        <span class="text-error" data-ng-show="addDonorForm.$submitted && addDonorForm.donorFullDesc.$error.required">обов'язкове поле</span>
+
+        <p>
+            <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+        </p>  
+    </form>
+</div>
+

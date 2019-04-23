@@ -1,0 +1,75 @@
+<div>
+    <h1>{{trainer.second_name}} {{trainer.name}} {{trainer.last_name}}</h1>
+    <style type="text/css">
+        #trainer_photo {
+            color: #333333;
+            /*background-image: url("wp-content/themes/angular-bootstrap/t_images/upload_photo.png") center center;*/
+            background: url("wp-content/themes/angular-bootstrap/t_images/upload_photo.png") center center;
+            height: 200px; /* Высота блока */
+            width: 200px; /* Ширина блока */
+            background-size: 200px;
+            opacity: .2;
+            margin: 10px;
+
+        }
+    </style>
+    <form name="addTrForm" ng-submit="addTrainerSubmit(addTrForm.$valid)" novalidate>
+        <table width="100%">
+            <tr>
+                <td>
+                    <label>Фімлія:</label>
+                    <input type="text" placeholder="Фімлія" name="trSecondName" class="form-control" ng-model="trainer.second_name" ng-class="{error : addTrForm.trSecondName.$error.required}" ng-required="true">
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trSecondName.$error.required">обов'язкове поле</span>
+                </td>
+                <td width="200px" rowspan="4">
+                    <div id="trainer_photo" ng-click="addTrainerPhoto()">
+                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Ім'я:</label>
+                    <input type="text" placeholder="Ім'я" name="trName" class="form-control" ng-model="trainer.name" ng-class="{error : addTrForm.trName.$error.required}" ng-required="true">
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trName.$error.required">обов'язкове поле</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>По батькові:</label>
+                    <input type="text" placeholder="По батькові" name="trLastName" class="form-control" ng-model="trainer.last_name" ng-class="{error : addTrForm.trLastName.$error.required}" ng-required="true">
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trLastName.$error.required">обов'язкове поле</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Електронна пошта:</label>
+                    <input type="text" placeholder="Електронна пошта" name="trEmail" class="form-control" ng-model="trainer.email" ng-class="{error : addTrForm.trLastName.$error.required}" ng-required="true">
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trEmail.$error.required">обов'язкове поле</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Короткий _опис:</label>
+                    <textarea angularte name="trShortDesc" ng-model="trainer.short_desc" ng-required="true"></textarea>
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trShortDesc.$error.required">обов'язкове поле</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Повний опис:</label>
+                    <textarea angularte name="trFullDesc"  ng-model="trainer.full_desc"  ng-required="true"></textarea>
+                    <span class="text-error" data-ng-show="addTrForm.$submitted && addTrForm.trFullDesc.$error.required">обов'язкове поле</span>
+                </td>
+            </tr>
+        </table> 
+        <p>
+            <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+        </p>  
+    </form>
+    <input type="file" name="file" class="btn btn-info" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+    
+    <!--form action="upload.php" method="post" id="do_photo_upload" ng-submit="submit()" enctype="multipart/form-data"  hidden="true">
+        <input type="file" name="fileToUpload" id="fileToUpload">
+    </form-->
+</div>
+

@@ -1,0 +1,1 @@
+functionName=submitCustomerInfo&i_customer=1&email=vasyl.ignatyev@gmail.com&password=qwerty&first_name=Vasyl&second_name=Yurievich&last_name=Ignatyev&sex=M&options=&i_company=0

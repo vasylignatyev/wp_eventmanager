@@ -1,0 +1,27 @@
+<div>
+    <h1>Події</h1>
+    
+    <table class="table-hover" width="100%" id="event-list-table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Тривалість</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="event in eventList" data-i-event="{{ event.i_event }}">
+                <td>
+                    <a href="" ng-click="setEventInfo(event.i_event)">{{ event.title }}</a>
+                </td>
+                <td>{{ event.durationStr }}</td>
+                <td class="event-action">
+                    <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(event.i_event)" ></span-->
+                    <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(event.i_event)"></span>
+                    <span title="Delete" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="eventDelete(event.i_event)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="eventNew()">Cтворити</button>
+</div>

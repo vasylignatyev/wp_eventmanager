@@ -1,0 +1,78 @@
+<div>
+    <h1>{{}}</h1>
+    <form name="companyInfoForm" ng-submit="addCompanySubmit(companyInfoForm.$valid)" novalidate>
+        
+        <label>Назва:</label>
+        <input type="text" placeholder="Назва" name="companyTitle" class="form-control" ng-model="company.title" ng-class="{error : companyInfoForm.companyTitle.$error.required}" ng-required="true">
+        <span class="text-error" data-ng-show="companyInfoForm.$submitted && companyInfoForm.companyTitle.$error.required">обов'язкове поле</span>
+        
+        <h3>Адреса</h3>
+        <table width="100%">
+            <tr>
+                <td>
+                    <label>Індекс</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Індекс" name="companyZip" class="form-control" ng-model="company.zip"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Країна</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Країна" name="companyCountry" class="form-control" ng-model="company.country"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Область</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Область"  name="companyRegion" class="form-control" ng-model="company.region"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Населений пункт</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Населений пункт"  name="companyLocality" class="form-control" ng-model="company.locality"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Вулиця</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Вулиця" name="companyStreet" class="form-control"  ng-model="company.street"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Офіс/Кімната</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Офіс/Кімната" name="companyOffice" class="form-control"  ng-model="company.office"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Електронна пошта</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="email" name="companyEmail" class="form-control"  ng-model="company.email"/>
+                </td>
+            </tr>
+        </table>
+
+        <label>Опис:</label>
+        <textarea angularte name="companyDescription" ng-model="company.description" ng-required="true"></textarea>
+        <span class="text-error" data-ng-show="companyInfoForm.$submitted && companyInfoForm.companyDescription.$error.required">обов'язкове поле</span>
+
+        <p>
+            <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+        </p>  
+    </form>
+</div>
+

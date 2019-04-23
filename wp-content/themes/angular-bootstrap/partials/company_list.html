@@ -1,0 +1,30 @@
+<div>
+    <h1>Компанії</h1>
+    <table class="table-hover" width="100%" id="company-list-table">
+        <thead>
+            <tr>
+                <th width="30%">Назва</th>
+                <th width="20%">Адреса</th>
+                <th width="45%">Опис</th>
+                <th width="35px">Дії</th>
+            </tr>
+            <tr ng-repeat="company in companyList" data-i-company="{{ company.i_company }}">
+                <td>
+                    <a href="" ng-click="showCompanyInfo(company.i_company)">{{ company.title }}</a>
+                </td>
+                <td>
+                    {{ company.country }}
+                </td>
+                <td>
+                    {{ company.description }}
+                </td>
+                <td class="company-action">
+                    <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(company.i_company)" ></span>
+                    <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(company.i_company)"></span-->
+                    <span title="Delete" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delCompany(company.i_company)"></span>
+                </td>
+            </tr>
+        </thead>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="addCompany()">Додати</button>
+</div>

@@ -1,0 +1,1 @@
+functionName=setDonorInfo&token=qwerty&title=Новый%20донор&tagline=""&country=Украина&short_desc=Короткое%20описание&full_desc=полное%20описание&i_donor=13&

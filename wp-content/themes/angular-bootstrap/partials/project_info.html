@@ -1,0 +1,113 @@
+<div>
+    <h1>{{project.title}}</h1>
+    
+    <input type="file" nv-file-select uploader="uploader"/><br/>
+    <ul>
+        <li ng-repeat="item in uploader.queue">
+            Name: <span ng-bind="item.file.name"></span><br/>
+            <button ng-click="item.upload()">upload</button>
+        </li>
+    </ul>
+    
+    <form name="addProjectForm" ng-submit="addProjectSubmit(addProjectForm.$valid)" novalidate>
+        
+        <div class="form-group">
+            <label>Назва:</label>
+            <input type="text" placeholder="Назва" name="projectTitle" class="form-control" ng-model="project.title" ng-class="{error : addProjectForm.projectTitle.$error.required}" ng-required="true"/>
+            <span class="text-error" data-ng-show="addProjectForm.$submitted && addProjectForm.projectTitle.$error.required">обов'язкове поле</span>
+        </div>
+       
+        <div class="form-group">
+            <label for="projectStartDate">Дата початку:</label>
+            <input type="date" placeholder="Дата початку" name="projectStartDate" class="form-control" ng-model="project.start_date" ng-class="{error : addProjectForm.projectStartDate.$error.required}" ng-required="false"/>
+            <span class="text-error" data-ng-show="addProjectForm.$submitted && addProjectForm.projectStartDate.$error.required">обов'язкове поле</span>
+        </div>
+        
+        <div class="form-group">
+            <label for="projectEndDate">Дата закінчення:</label>
+            <input type="date" placeholder="Дата закінчення" name="projectEndDate" class="form-control" ng-model="project.end_date" ng-class="{error : addProjectForm.projectEndDate.$error.required}" ng-required="false"/>
+            <span class="text-error" data-ng-show="addProjectForm.$submitted && addProjectForm.projectEndDate.$error.required">обов'язкове поле</span>
+        </div>
+        
+        <div class="form-group">
+            <label>Короткий _опис:</label>
+            <textarea angularte name="projectShortDesc" ng-model="project.short_desc" ng-required="true"></textarea>
+            <span class="text-error" data-ng-show="addProjectForm.$submitted && addProjectForm.projectShortDesc.$error.required">обов'язкове поле</span>
+        </div>
+        
+        <div class="form-group">
+            <label>Повний опис:</label>
+            <textarea angularte name="projectFullDesc"  ng-model="project.full_desc"  ng-required="true"></textarea>
+            <span class="text-error" data-ng-show="addProjectForm.$submitted && addProjectForm.projectFullDesc.$error.required">обов'язкове поле</span>
+        </div>
+        
+        <label for="projectDonor">Донори:</label>
+        <div class="form-group">
+            <label for="projectDonor">Беруть участь:</label>
+            <table class="table-hover" width="100%" id="donor-list-table" >
+                <thead>
+                    <tr>
+                        <th width="35%">Донор</th>
+                        <th width="20%">Країна</th>
+                        <th width="35%">Мета</th>
+                        <th width="10%">Дії</th>
+                    </tr>
+                    <tr ng-repeat="donor in assignedDonerList" data-i-donor="{{ project.i_donor }}">
+                        <td>
+                            <a href="" ng-click="showDonorInfo(donor.i_donor)">{{ donor.title }}</a>
+                        </td>
+                        <td>
+                            {{ donor.country }}
+                        </td>
+                        <td>
+                            {{ donor.tagline }}
+                        </td>
+                        <td class="project-action">
+                            <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(project.i_project)" ></span>
+                            <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(project.i_project)"></span-->
+                            <span title="Delete" class="glyphicon glyphicon-minus" aria-hidden="true" ng-click="delDonorFromProject(project.i_project, donor.i_donor)"></span>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="form-group">
+            <!--select ng-model="selectedDonor" name="projectDonor" class="form-control" ng-options="donor.title for donor in unassignedDonerList"></select-->       
+            <label for="projectDonor">Не беруть участь:</label>
+            <table class="table-hover" width="100%">
+                <thead>
+                    <tr>
+                        <th width="35%">Донор</th>
+                        <th width="20%">Країна</th>
+                        <th width="35%">Мета</th>
+                        <th width="10%">Дії</th>
+                    </tr>
+                    <tr ng-repeat="donor in unassignedDonerList" data-i-donor="{{ project.i_donor }}">
+                        <td>
+                            <a href="" ng-click="showDonorInfo(donor.i_donor)">{{ donor.title }}</a>
+                        </td>
+                        <td>
+                            {{ donor.country }}
+                        </td>
+                        <td>
+                            {{ donor.tagline }}
+                        </td>
+                        <td class="project-action">
+                            <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(project.i_project)" ></span>
+                            <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(project.i_project)"></span-->
+                            <span title="Delete" class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="addDonor2Project(project.i_project, donor.i_donor)"></span>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+
+            
+        </div>
+
+        <p>
+            <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+            <input type="calcel" class="btn btn-info" ng-click="cancelChanges()" value="Скасувати"/>
+        </p>  
+    </form>
+</div>
+

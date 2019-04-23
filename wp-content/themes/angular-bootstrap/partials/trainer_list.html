@@ -1,0 +1,31 @@
+<div>
+    <h1>Тренеры</h1>
+    
+    <table class="table-hover" width="100%" id="trainer-list-table">
+        <thead>
+            <tr>
+                <th width="20%">Прізвище</th>
+                <th width="20%">Ім'я</th>
+                <th width="20%">По батькові</th>
+                <th width="35%">Короткий опис</th>
+                <th width="20px">Дії</th>
+            </tr>
+            <tr ng-repeat="trainer in trainerList" data-i-trainer="{{ trainer.i_trainer }}">
+                <td>
+                    <a href="" ng-click="editTrainerInfo(trainer.i_trainer)">{{ trainer.second_name }}</a>
+                </td>
+                <td>{{ trainer.name }}</td>
+                <td>{{ trainer.last_name }}</td>
+                <td>
+                    <a href="" ng-click="setTrainerInfo(trainer.i_trainer)">{{ trainer.short_desc }}</a>
+                </td>
+                <td class="trainer-action">
+                    <!--span title="Tikets" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="eventTicket(event.i_event)" ></span>
+                    <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="eventCalendar(event.i_event)"></span-->
+                    <span title="Delete" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delTrainer(trainer.i_trainer)"></span>
+                </td>
+            </tr>
+        </thead>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="addTrainer()">Додати</button>
+</div>

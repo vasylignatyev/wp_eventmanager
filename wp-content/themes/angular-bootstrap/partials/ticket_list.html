@@ -1,0 +1,31 @@
+<div>
+    <h1>Квитки</h1>
+    
+    <table class="table-hover" width="100%" id="ticket-list-table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Ціна</th>
+                <th>Кількість</th>
+                <th>Замовлено</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ticket in ticketList" data-i-ticket="{{ ticket.i_ticket }}">
+                <td>
+                    <a href="" ng-click="ticketEdit(ticket.i_ticket)">{{ ticket.title }}</a>
+                </td>
+                <td>{{ ticket.price }}</td>
+                <td>{{ ticket.quantity }}</td>
+                <td>{{ ticket.ordered }}</td>
+                <td class="ticket-action">
+                    <!--span title="Edit" class="glyphicon glyphicon-barcode" aria-hidden="true" ng-click="ticketEdit($event)"></span-->
+                    <span title="Calendar" class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="ticketCalendar(ticket.i_ticket)"></span>
+                    <span title="Delete" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="ticketDelete(ticket.i_ticket)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="ticketAdd()">Додати</button>
+</div>

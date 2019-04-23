@@ -1,0 +1,1 @@
+functionName=setTrainerInfo&i_trainer=16&name=V_asyl&second_name=Ignatyev&last_name=Yurievich&email=vasyl.ignatyev@gmail.com&short_desc=short%20description&full_desc=full_description&photo_url=url

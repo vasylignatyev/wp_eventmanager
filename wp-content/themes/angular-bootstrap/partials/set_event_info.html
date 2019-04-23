@@ -1,0 +1,74 @@
+<!--ul class="nav nav-tabs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Семінари</a></li>
+  <li><a href="#schedule">Расписиние</a></li>
+  <li><a href="#">Розклад</a></li>
+</ul-->
+<form name="addEvForm" ng-submit="addEventSubmit(addEvForm.$valid)" novalidate>
+    <!--p>
+        <label>Світлина:</label>
+        <input type="file"/>
+    </p-->
+    <p>
+        <label>Назва:</label>
+        <input type="text" placeholder="Назва" name="evTitle" class="form-control" ng-model="event.title" ng-class="{error : addEvForm.evTitle.$error.required}" ng-required="true">
+        <span class="text-error" data-ng-show="addEvForm.$submitted && addEvForm.evTitle.$error.required">обов'язкове поле</span>
+    </p>
+    <p>
+        <label>Короткий _опис:</label>
+        <textarea angularte name="evShortDesc" ng-model="event.short_desc" ng-required="true"></textarea>
+        <span class="text-error" data-ng-show="addEvForm.$submitted && addEvForm.evShortDesc.$error.required">обов'язкове поле</span>
+    </p>
+    <p>
+        <label>Повний опис:</label>
+        <textarea angularte name="evFullDesc"  ng-model="event.full_desc"  ng-required="true"></textarea>
+        <span class="text-error" data-ng-show="addEvForm.$submitted && addEvForm.evFullDesc.$error.required">обов'язкове поле</span>
+    </p>
+    <p>
+        <label>Тривалість:</label>
+        <!--input type="text" string-to-number name="evDuration" class="form-control" ng-model="event.duration" -->
+    </p>
+    <table width="100%" id="durationTable">
+        <thead>
+            <tr>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>19</th>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+                <th>
+                    <span title="Додати день" class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="addDay($event)"></span>
+                    <span title="Видалити день" class="glyphicon glyphicon-minus" aria-hidden="true" ng-show="event.duration.length > 0" ng-click="delDay($event)"></span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="scheduleRow" ng-repeat="row in event.duration" row="row" check-work-hour="checkWorkHour(aEvent)" uncheck-work-hour="uncheckWorkHour(aEvent)"></tr>
+            
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" class="btn btn-info" ng-click="" value="Зберегти"/>
+    </p>  
+
+</form>
+

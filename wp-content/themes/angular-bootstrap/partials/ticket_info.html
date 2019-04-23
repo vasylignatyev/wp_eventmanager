@@ -1,0 +1,32 @@
+<div>
+    <h1>Квиток</h1>
+
+    <form name="setTicketForm" ng-submit="setTicketSubmit(setTicketForm.$valid)" novalidate>
+        <p>
+            <label>Назва:</label>
+            <input type="text" placeholder="Назва" name="title" class="form-control" ng-model="ticket.title" ng-class="{error : setTicketForm.title.$error.required}" ng-required="true">
+            <span class="text-error" data-ng-show="setTicketForm.$submitted && setTicketForm.title.$error.required">обов'язкове поле</span>
+        </p>
+        <p>
+            <label>Опис:</label>
+            <textarea angularte name="description" ng-model="ticket.description" ng-required="true"></textarea>
+            <span class="text-error" data-ng-show="setTicketForm.$submitted && setTicketForm.description.$error.required">обов'язкове поле</span>
+        </p>
+        <p>
+            <label>Ціна:</label>
+            <input name="price" type="number" min="1" step="0.01" class="form-control" string-to-number ng-model="ticket.price" />
+            <span class="text-error" data-ng-show="setTicketForm.$submitted && setTicketForm.price.$error.required">обов'язкове поле</span>
+        </p>
+        <p>
+            <label>Кількість:</label>
+            <input name="quantity" type="number" min="1" step="1" class="form-control" string-to-number ng-model="ticket.quantity" />
+            <span class="text-error" data-ng-show="setTicketForm.$submitted && setTicketForm.quantity.$error.required">обов'язкове поле</span>
+        </p>
+        <p>
+            <label>Замовлено</label>
+            <input name="ordered" type="number" min="1" step="1" ng-readonly="true" class="form-control" string-to-number ng-model="ticket.ordered" />
+        </p>
+
+        <input type="submit" class="btn btn-info" ng-click="setTicketInfo()" value="Зберегти"/>
+    </form>
+</div>

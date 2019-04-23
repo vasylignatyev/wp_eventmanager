@@ -1,0 +1,29 @@
+<div>
+    <h1>Розклад</h1>
+
+    <table class="table-hover" width="100%" id="schedule-list-table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Дата проведення</th>
+                <th>Тривалість</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="schedule in scheduleList" data-i-event="{{ schedule.i_event}}">
+                <td>
+                    <a href="" ng-click="setSheduleInfo(schedule.i_schedule)">{{ schedule.title}}</a>
+                </td>
+                <td>{{ schedule.start_date}}</td>
+                <td>{{ schedule.durationStr}}</td>
+                <td class="schedule-action">
+                    <!--span title="Редагувати" class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="scheduleEdit(schedule.i_schedule)"></span-->
+                    <span title="Запрошення" class="glyphicon glyphicon-envelope" aria-hidden="true" ng-click="scheduleTickets(schedule.i_schedule)"></span>
+                    <span title="Видалити" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delScheduleInfo(schedule.i_schedule)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="scheduleNew()">Додати</button>
+</div>

@@ -1,0 +1,13 @@
+<h1>Редагувати розклад</h1>
+<h3>{{schedule.title}}</h3>
+<form>
+    <div class="form-group">
+        <label for="start_date">Дата початку:</label>
+        <input type="date" class="form-control" id="start_date" ng-model="schedule.start_date"/>
+    </div>
+    <div class="form-group">
+        <label for="duration">Тривалість:</label>
+        <input type="text" class="form-control" id="duration" readonly string-to-number ng-model="durationText"/>
+    </div>
+    <input type="submit" class="btn btn-info" value="Зберегти" ng-click="save()">
+</form>
